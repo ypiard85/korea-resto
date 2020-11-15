@@ -1,0 +1,13 @@
+.top_home{
+    display: block;        
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+    margin-bottom: 20px ;
+}
+
+.top_home > input{
+    text-align: center;
+    padding: 5px;
+    margin: 10px 0;
+}

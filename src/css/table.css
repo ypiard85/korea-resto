@@ -1,0 +1,32 @@
+.table{
+    margin: auto;
+}
+
+.table th, .table td{
+    padding: 20px!important;
+}
+
+.table th{
+    background-color: aquamarine;
+}
+
+.table td{
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+
+.action{
+    display: flex;
+    justify-content: space-between;
+}
+
+.action > button{
+    width: 100%;    
+    margin: 5px;
+    cursor: pointer;
+}
+
+.action > button > a{
+    padding: 5px!important;
+}
+

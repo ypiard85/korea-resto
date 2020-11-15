@@ -1,32 +1,56 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Log />
+    <Nav />
+    <message />
+    <router-view></router-view>    
   </div>
 </template>
 
+<script>
+  import Nav from '@/components/nav'
+  import Log from '@/components/loginfo'
+  import {mapGetters} from 'vuex'
+  import Message from '@/components/message'
+
+  export default{
+    components:{
+      Nav, Log, Message,
+    },
+
+    computed:{
+      ...mapGetters(['message', 'isAuth'])
+    },
+
+  }
+</script>
+
 <style lang="scss">
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+} 
+
+.message{
+  position:fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 5px;
+  box-shadow: 0 0 5px red;
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(0, 128, 0, 0.658);
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
