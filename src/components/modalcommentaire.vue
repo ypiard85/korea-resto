@@ -12,6 +12,7 @@
             </form>
             <!--Html Hex-->
             <span id="closed" @click="closemodal">&#x2716;</span>
+            
         </div>
     </div>    
 </template>
@@ -22,7 +23,7 @@
     export default{
         data(){
             return{
-                date: this.dateBuilder(),
+                date: null,
                 city: this.$route.params.city,
                 name: this.$route.params.name,
                 text: null,
@@ -34,12 +35,16 @@
             ...mapGetters(['isAuth'])
         },
 
+       mounted(){
+            this.date = this.dateBuilder()
+        },
+
         created(){
             this.user = this.isAuth.currentUser.email   
         },
 
         methods:{
-            dateBuilder(){
+           dateBuilder(){
                 let d = new Date()
                 let mounths = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"]
                 let days =["dimanche","lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]

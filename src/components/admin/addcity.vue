@@ -25,6 +25,7 @@
                 <input type="text" :placeholder="f.name" v-model="cityname">
                 <input type="text" :placeholder="f.image" v-model="cityphoto">
                 <button @click="send(f)">valider</button>
+                <p style="cursor: pointer" @click="suparray(i)">X</p>
             </div> 
         </div>
     </div>
@@ -62,8 +63,10 @@
                         this.villes.push({
                             name: this.city,
                             image: this.photo,
-                            edit: false,
+                            
                         })
+                        this.city = '',
+                        this.photo = ''
                     }
                 } catch (e) {
                     console.log(e)
@@ -98,8 +101,12 @@
                     this.cityphoto = ''
                     this.$store.state.message = ''                
                 }, 300);
-                
-                
+                                
+            },
+
+            suparray(i){
+                const d = this.array.findIndex(item => item.id == i.id)
+                this.array.splice(d, 1)
             }
         },
     }

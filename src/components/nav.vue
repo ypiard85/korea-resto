@@ -11,7 +11,7 @@
                 <router-link to="/login" v-if="!isAuth.currentUser">Connexion</router-link>
                 <a href="http://localhost:8080/" v-else @click="logOut">Deconnexion</a>
              </li> 
-               <li><router-link to="/favories" v-if="isAuth.currentUser">Mes favories</router-link></li>               
+               <li><router-link to="/favories" v-if="isAuth.currentUser">Mes favoris</router-link></li>               
                <li><router-link to="/admin" v-if="isAuth.currentUser && isAuth.currentUser.email == 'admin@admin.fr' ">Admin</router-link></li>                    
            </ul>
            <span id="toogle" @click="toogle" :style="{transform: [ toogle_status ? 'translateX(-250px)' : 'translateX(0px)']}"><i class="material-icons">fastfood</i></span>
@@ -22,7 +22,7 @@
                     <router-link to="/login" v-if="!isAuth.currentUser">Connexion</router-link>
                     <a href="http://localhost:8080/" v-else @click="logOut">Deconnexion</a>
                  </li> 
-                <li><router-link to="/favories" v-if="isAuth.currentUser">Mes favories</router-link></li>               
+                <li><router-link to="/favories" v-if="isAuth.currentUser">Mes favoris</router-link></li>               
                 <li><router-link to="/admin" v-if="isAuth.currentUser && isAuth.currentUser.email == 'admin@admin.fr' ">Admin</router-link></li>                    
             </ul>                    
         </div>

@@ -2,7 +2,7 @@
     <div class="commentaire">
         <h3>Commentaires</h3>
         <button @click="comment">Ajouter un commentaire</button>     
-        <div v-if="coms == []">
+        <div v-if="coms.length != 0">
             <commentaire-template v-for="(com,i) in coms" :key="i" :com="com"/> 
         </div>
         <div class="block" v-else>
@@ -71,8 +71,8 @@
                             city: payload.city,
                             resto: payload.resto,
                             user: payload.user,
-                            publish_date: payload.date,
-                            content: payload.content                
+                            publish_date: payload.publish_date,
+                            content: payload.content
                     })  
                     
                     setTimeout(() => {

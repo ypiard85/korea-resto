@@ -18,8 +18,7 @@
             <div class="info_option">
                 <a :href="view.location" target="_blank">
                     <i class="material-icons">gps_fixed</i>
-                    <p>Navigation</p>
-                    {{ favories }}
+                    <p>Navigation</p>                    
                 </a>          
             </div>           
             <div class="info_option" v-if="isAuth.currentUser">                                    
@@ -98,7 +97,7 @@
                         city: this.$route.params.city
                     })
 
-                    this.$store.state.message =  'Restaurant ajouter au favorie'
+                    this.$store.state.message =  'Restaurant ajouté aux favoris'
 
                     setTimeout(() => {
                         this.$store.state.message = ''

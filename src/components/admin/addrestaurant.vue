@@ -59,10 +59,15 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>              
+                <tbody v-if="search != ' '"> 
+                    <input v-model="search" type="text" style="width: 100%; padding: 5px; text-align: center;" placeholder="Rechercher...">
+                    <admin-resto-template v-for="(r,i) in namefilter" :key="i" :r="r" @restoaction="updateresto(r)" />              
+                </tbody>
+                <tbody v-else> 
+                    <input v-model="search" type="text" style="width: 100%; padding: 5px; text-align: center;" placeholder="Rechercher...">
                     <admin-resto-template v-for="(r,i) in restodata" :key="i" :r="r" @restoaction="updateresto(r)" />              
                 </tbody>
-            </table>
+            </table>            
             <div class="datar" v-if="rdata">
                 <modif-resto v-for="(r,i) in restoupdate" :key="i" :r="r" @closeform="close(r)" @closeforms="closes" />
             </div>
@@ -88,6 +93,7 @@
                 restodata: [],                
                 menudata: [],
                 restoupdate: [],
+                search: '',
                 rdata: false,
                 
                 days: ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
@@ -136,6 +142,14 @@
                         }},     
                     ]
                     
+        }
+    },
+
+    computed:{
+        namefilter(){
+        return this.restodata.filter(e=>{
+            return e.name.toLowerCase().includes(this.search.toLowerCase())
+        })
         }
     },
 

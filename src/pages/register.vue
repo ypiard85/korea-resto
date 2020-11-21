@@ -49,7 +49,7 @@
                         this.$router.replace('/')
 
                     }else{
-                        this.msg = 'Vos mots de passe ne sont pas identique'
+                        this.msg = 'Vos mots de passe ne sont pas identiques'
                     }
                 }else{
                     this.msg = 'Votre mot de passe doit être suppérieur à 6'                    
